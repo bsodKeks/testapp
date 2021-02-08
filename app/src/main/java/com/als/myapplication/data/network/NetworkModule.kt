@@ -1,5 +1,6 @@
 package com.als.myapplication.data.network
 
+import com.als.myapplication.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -20,7 +21,7 @@ class NetworkModule() {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .baseUrl("https://gitlab.65apps.com/") //TODO gradle
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
     }
